@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout to branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: shellcheck
-        uses: reviewdog/action-shellcheck@v1.29
+        uses: reviewdog/action-shellcheck@v1.34.1
 
   test:
     name: Test setup-postgresql
@@ -31,7 +31,7 @@ jobs:
         postgresql_version: [14, 15, 16, 17, 18]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Run setup-postgresql
         uses: ./
         with:

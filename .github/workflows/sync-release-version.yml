@@ -8,11 +8,11 @@ jobs:
   update-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Run release-tagger
-        uses: tj-actions/release-tagger@v4
+        uses: tj-actions/release-tagger@v6
       - name: Sync release version.
         uses: tj-actions/sync-release-version@v13
         id: sync-release-version
@@ -21,9 +21,9 @@ jobs:
           only_major: true
           paths: README.md
       - name: Run git-cliff
-        uses: tj-actions/git-cliff@v1
+        uses: tj-actions/git-cliff@v2
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           base: "main"
           labels: "merge when passing"
