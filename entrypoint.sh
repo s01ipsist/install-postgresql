@@ -12,9 +12,9 @@ if ! [[ "$INPUT_POSTGRESQL_VERSION" =~ ^[0-9]+$ ]]; then
     exit 1
 fi
 
-# Check if the input is between 11 and 17 (inclusive)
-if (( INPUT_POSTGRESQL_VERSION < 12 || INPUT_POSTGRESQL_VERSION > 17 )); then
-    echo "Error: $INPUT_POSTGRESQL_VERSION is not between 12 and 17 (inclusive)."
+# Check if the input is a supported version: https://www.postgresql.org/support/versioning/
+if (( INPUT_POSTGRESQL_VERSION < 14 || INPUT_POSTGRESQL_VERSION > 18 )); then
+    echo "Error: $INPUT_POSTGRESQL_VERSION is not between 14 and 18 (inclusive)."
     exit 1
 fi
 
